@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { quiz } from '../questoes'
-//import { Button } from '../components/Button';
+import { Button } from '../components/Button';
 
 const page = () => {
     const [activeQuestion, setActiveQuestion] = useState(0)
@@ -60,16 +60,16 @@ const page = () => {
 
     return (
         <div className='container'>
-            <h1>Pagina do Quiz</h1>
-            <div>
+            <h1 className='flex-box justify-center mt-10 bg-green-300 text-black text-2xl fill-black rounded-md w-52 text-center'>Questões</h1>
+            <div className='mt-10 flex justify-center'>
                 <h2>
                     Question: {activeQuestion + 1}
                     <span>/{questions.length}</span>
                 </h2>
             </div>
-            <div>
+            <div className='flex justify-center'>
                 {!showResult ? (
-                    <div className='quiz-container'>
+                    <div className='flex-box justify-center mt-10 bg-green-300 text-black text-2xl fill-black rounded-md w-150 text-center'>
                         <h3>{questions[activeQuestion].question}</h3>
                         {answers.map((answer, idx) => (
                             <li 
