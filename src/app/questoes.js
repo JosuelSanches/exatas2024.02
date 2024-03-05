@@ -1,5 +1,5 @@
 export const quiz = {
-    totalQuestions: 5,
+    totalQuestions: 6,
     questions: [
         {
             id: 1,
@@ -30,6 +30,21 @@ export const quiz = {
             question: 'Qual e o numero de lados de um heptagono?',
             answers:['cinco', 'seis', 'sete', 'oito', 'nove'],
             correctAnswer: 'sete',    
+        },
+        {
+            id: 6,
+            fonte: null,
+            nivel: null,
+            correctAnswer: '5,893',
+            question: '(PMPA -1993) Dentre as alternativas abaixo, a que apresenta o número decimal mais próximo do produto 4,32 x 1,42 é:',
+            answers: ['5,742', '5,893', '6,111', '6,159', '6,163'],
+            acessos: null,
+            acertos: null,
+            url_video: "",
+            status:'1',
+            mensagem: null,
+            usuario_id: '1',
+            assunto_id:'1'
         }
     ]
 }
