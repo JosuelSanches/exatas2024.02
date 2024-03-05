@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { quiz } from '../questoes'
+//import { Button } from '../components/Button';
 
 const page = () => {
     const [activeQuestion, setActiveQuestion] = useState(0)

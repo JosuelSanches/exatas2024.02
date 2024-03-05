@@ -14,28 +14,28 @@ export const Button = (props: ButtonProps) => {
 
     switch(variant){
         case 'transparent':
-            return <TransparentButton defaultStyle={style} {...props} />
+            return <TransparentButton defaultStyle={style} {...props} size={props?.size ?? "default"} />
         case 'submit':
-            return <SubmitButton defaultStyle={style} {...props} />
+            return <SubmitButton defaultStyle={style} {...props} size={props?.size ?? "default"} />
         case 'proceed':
-            return <ProceedButton defaultStyle={style} {...props} />
+            return <ProceedButton defaultStyle={style} {...props} size={props?.size ?? "default"} />
         case 'cancel':
-            return <CancelButton defaultStyle={style} {...props} />
+            return <CancelButton defaultStyle={style} {...props} size={props?.size ?? "default"} />
         default:
-            return <DefaultButton defaultStyle={style} {...props} /> 
+            return <DefaultButton defaultStyle={style} {...props} size={props?.size ?? "default"} /> 
     }
 }
 
 export const DefaultButton = (props: ButtonProps) => {
     let {children, icon, defaultStyle, size} = props
 
-    if(size === 'default') defaultStyle += 'w-52'
+    if(size === 'default') defaultStyle += ' w-52'
 
     return (
         <button
         {...props}
-        className={`${defaultStyle} border-2 border-gray-500 text-white text-2xl w-52`}>
-            <span>
+        className={`${defaultStyle} border-2 border-gray-500 text-white text-2xl`}>
+            <span className="text-center my-auto">
                 {children}
             </span>
             {icon && cloneElement(icon, { className: 'fill-white w-7 h-7'})}
@@ -43,15 +43,67 @@ export const DefaultButton = (props: ButtonProps) => {
     )
 }
 
-export const TransparentButton = () => {
-    return <button>Transparente</button>
+export const TransparentButton = (props: ButtonProps) => {
+     let {children, icon, defaultStyle, size} = props
+
+    if(size === 'default') defaultStyle += ' w-52'
+
+    return (
+        <button
+        {...props}
+        className={`${defaultStyle}  text-white text-2xl`}>
+            <span className="text-center my-auto">
+                {children}
+            </span>
+            {icon && cloneElement(icon, { className: 'fill-white w-7 h-7'})}
+        </button>
+    )
 }
-export const SubmitButton = () => {
-    return <button>Submeter</button>
+export const SubmitButton = (props: ButtonProps) => {
+     let {children, icon, defaultStyle, size} = props
+
+    if(size === 'default') defaultStyle += ' w-52'
+
+    return (
+        <button
+        {...props}
+        className={`${defaultStyle} bg-[#43f46a] text-black text-2xl fill-black`}>
+            <span className="text-center my-auto">
+                {children}
+            </span>
+            {icon && cloneElement(icon, { className: 'fill-white w-7 h-7'})}
+        </button>
+    )
 }
-export const ProceedButton = () => {
-    return <button>Proceder</button>
+export const ProceedButton = (props: ButtonProps) => {
+     let {children, icon, defaultStyle, size} = props
+
+    if(size === 'default') defaultStyle += ' w-52'
+
+    return (
+        <button
+        {...props}
+        className={`${defaultStyle} border-2 border-[#43f46a] text-white text-2xl`}>
+            <span className="text-center my-auto">
+                {children}
+            </span>
+            {icon && cloneElement(icon, { className: 'fill-white w-7 h-7'})}
+        </button>
+    )
 }
-export const CancelButton = () => {
-    return <button>Cancelar</button>
+export const CancelButton = (props: ButtonProps) => {
+     let {children, icon, defaultStyle, size} = props
+
+    if(size === 'default') defaultStyle += ' w-52'
+
+    return (
+        <button
+        {...props}
+        className={`${defaultStyle} bg-[#f45943] text-black text-2xl`}>
+            <span className="text-center my-auto">
+                {children}
+            </span>
+            {icon && cloneElement(icon, { className: 'fill-white w-7 h-7'})}
+        </button>
+    )
 }
