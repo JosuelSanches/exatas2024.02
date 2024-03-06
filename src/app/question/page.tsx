@@ -60,23 +60,23 @@ const page = () => {
 
     return (
         <div className='container'>
-            <h1 className='flex-box justify-center mt-10 bg-green-300 text-black text-2xl fill-black rounded-md w-52 text-center'>Questões</h1>
-            <div className='mt-10 flex justify-center'>
+            <h1>Questões</h1>
+            <div>
                 <h2>
                     Question: {activeQuestion + 1}
                     <span>/{questions.length}</span>
                 </h2>
             </div>
-            <div className='flex justify-center'>
+            <div>
                 {!showResult ? (
-                    <div className='flex-box justify-center mt-10 bg-green-300 text-black text-2xl fill-black rounded-md w-150 text-center'>
+                    <div className='questions-container'>
                         <h3>{questions[activeQuestion].question}</h3>
                         {answers.map((answer, idx) => (
                             <li 
                                 key={idx}
                                 onClick={() => onAnswerSelected(answer, idx)}
                                 className={
-                                    selectedAnswerIndex === idx ? 'li-selected' : 'li-hover'
+                                    selectedAnswerIndex === idx ? 'bg-black text-white' : 'li-hover'
                                 }
                             >
                                 <span>{answer}</span>
@@ -88,7 +88,7 @@ const page = () => {
                                     {activeQuestion === question.length - 1 ? 'Finalizar' : 'Proximo'}
                                 </button>
                             ) : (
-                                <button onClick={nextQuestion} dissabled className='btn-disabled'></button>
+                                <button onClick={nextQuestion} disabled className='btn-disabled'></button>
                             )
                         }
 

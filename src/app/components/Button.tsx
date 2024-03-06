@@ -34,7 +34,7 @@ export const DefaultButton = (props: ButtonProps) => {
     return (
         <button
         {...props}
-        className={`${defaultStyle} border-2 border-gray-500 text-white text-2xl`}>
+        className={`${defaultStyle} border-2 border-gray-500 text-white text-2xl hover:bg-slate-500`}>
             <span className="text-center my-auto">
                 {children}
             </span>
@@ -67,7 +67,7 @@ export const SubmitButton = (props: ButtonProps) => {
     return (
         <button
         {...props}
-        className={`${defaultStyle} bg-[#43f46a] text-black text-2xl fill-black`}>
+        className={`${defaultStyle} bg-[#43f46a] text-black text-2xl fill-black hover:bg-sky-700`}>
             <span className="text-center my-auto">
                 {children}
             </span>
