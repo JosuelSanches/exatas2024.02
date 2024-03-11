@@ -21,14 +21,14 @@ const page = () => {
     /*
         Select and check answer
     */
-   const onAnswerSelected = (answer, idx) => {
+   const onAnswerSelected = (answer: any, idx: any) => {
         setChecked(true)
         setSelectedAnswerIndex(idx)
         if (answer === correctAnswer){
-            setSelectedAnswer(true)
+            setSelectedAnswer(true.toString)
             console.log('true')
         }else{
-            setSelectedAnswer(false)
+            setSelectedAnswer(false.toString)
             console.log('false')
         }
 

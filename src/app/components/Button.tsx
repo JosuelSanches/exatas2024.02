@@ -5,7 +5,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     icon?: ReactElement;
     variant?: 'default' | 'transparent' | 'submit' | 'proceed' | 'cancel'
     defaultStyle?: string
-    size?: 'default' | 'small'
+    size?: 'default' | 'small' | 'full'
 }
 export const Button = (props: ButtonProps) => {
     const {variant} = props
