@@ -25,10 +25,10 @@ const page = () => {
         setChecked(true)
         setSelectedAnswerIndex(idx)
         if (answer === correctAnswer){
-            setSelectedAnswer(true.toString)
+            setSelectedAnswer(true)
             console.log('true')
         }else{
-            setSelectedAnswer(false.toString)
+            setSelectedAnswer(false)
             console.log('false')
         }
 
