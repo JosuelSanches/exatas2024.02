@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { quiz } from '../questoes'
-import { Button } from '../components/Button';
+//import { Button } from '../components/Button';
 
 const page = () => {
     const [activeQuestion, setActiveQuestion] = useState(0)
@@ -89,8 +89,8 @@ const page = () => {
                                 </button>
                             ) : (
                                 <button onClick={nextQuestion} disabled className='btn-disabled'></button>
-                            )
-                        }
+                                )
+                            }
 
                     </div>
                 ) : (

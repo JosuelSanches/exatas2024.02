@@ -35,7 +35,7 @@ export const quiz = {
             id: 6,
             fonte: null,
             nivel: null,
-            correctAnswer: '5,893',
+            correctAnswer: '6,111',
             question: '(PMPA -1993) Dentre as alternativas abaixo, a que apresenta o número decimal mais próximo do produto 4,32 x 1,42 é:',
             answers: ['5,742', '5,893', '6,111', '6,159', '6,163'],
             acessos: null,
