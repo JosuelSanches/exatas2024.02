@@ -5,7 +5,7 @@ import { quiz } from '../questoes'
 
 const page = () => {
     const [activeQuestion, setActiveQuestion] = useState(0)
-    const [selectedAnswer, setSelectedAnswer] = useState('')
+    const [selectedAnswer, setSelectedAnswer] = useState(false)
     const [checked, setChecked] = useState(false)
     const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null)
     const [showResult, setShowResult] = useState(false)
@@ -26,14 +26,15 @@ const page = () => {
         setSelectedAnswerIndex(idx)
         if (answer === correctAnswer){
             setSelectedAnswer(true)
-            console.log('true')
+            //console.log('true')
         }else{
             setSelectedAnswer(false)
-            console.log('false')
+            // console.log('false')
         }
 
    }
 
+  
    // Calculate score and increment to next question
    const nextQuestion = () =>{
     setSelectedAnswerIndex(null)
@@ -83,10 +84,18 @@ const page = () => {
                             </li>
                         ))}
                         {
-                            checked ? (
-                                <button onClick={nextQuestion} className='btn'>
-                                    {activeQuestion === question.length - 1 ? 'Finalizar' : 'Proximo'}
-                                </button>
+                            checked ? (/**<button onClick={nextQuestion} className={selectedAnswer? 'bg-green-700 btn': 'bg-red-700 btn'} >
+                                {selectedAnswer? 'Correto' : 'Errado'}
+                            </button>
+                                **/
+                                <div>   
+                                    <button onClick={nextQuestion} className='btn'>
+                                        {activeQuestion === question.length - 1 ? 'Finalizar' : 'Proximo'}
+                                    </button>
+                                </div>
+
+
+                                
                             ) : (
                                 <button onClick={nextQuestion} disabled className='btn-disabled'></button>
                                 )
