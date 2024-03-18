@@ -97,9 +97,16 @@ const page = () => {
                         ))}
                         {
                             checked ? (
-                                <button onClick={onCorrection} className={notGreenOrRed? 'bg-blue-500' : correction? 'bg-green-500':'bg-red-500'} >
-                                Verificar
-                                </button>
+                                <div>
+                                    <button onClick={onCorrection} className={notGreenOrRed? 'bg-blue-500' : correction? 'bg-green-500':'bg-red-500'} >
+                                        Verificar
+                                    </button>
+                                    <h3>
+                                        <button onClick={nextQuestion} className='btn'>
+                                            {activeQuestion === question.length - 1 ? 'Finalizar' : 'Proximo'}
+                                        </button>
+                                    </h3>
+                                </div>
                                 /**<div>
                                     <button onClick={nextQuestion} className='btn'>
                                     {activeQuestion === question.length - 1 ? 'Finalizar' : 'Proximo'}
