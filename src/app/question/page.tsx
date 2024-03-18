@@ -8,6 +8,8 @@ const page = () => {
     const [selectedAnswer, setSelectedAnswer] = useState(false)
     const [checked, setChecked] = useState(false)
     const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null)
+    const [correction, setCorrection] = useState(false)
+    const [notGreenOrRed, setNotGreenOrRed] = useState(true)
     const [showResult, setShowResult] = useState(false)
     const [result, setResult] = useState({
         score: 0,
@@ -21,6 +23,16 @@ const page = () => {
     /*
         Select and check answer
     */
+   const onCorrection =() =>{
+    if (selectedAnswer === true){
+       setCorrection(true)
+       setNotGreenOrRed(false)
+    }else{
+        setCorrection(false)
+        setNotGreenOrRed(false)
+    }
+    
+   }
    const onAnswerSelected = (answer: any, idx: any) => {
         setChecked(true)
         setSelectedAnswerIndex(idx)
@@ -84,15 +96,15 @@ const page = () => {
                             </li>
                         ))}
                         {
-                            checked ? (/**<button onClick={nextQuestion} className={selectedAnswer? 'bg-green-700 btn': 'bg-red-700 btn'} >
-                                {selectedAnswer? 'Correto' : 'Errado'}
-                            </button>
-                                **/
-                                <div>   
+                            checked ? (
+                                <button onClick={onCorrection} className={notGreenOrRed? 'bg-blue-500' : correction? 'bg-green-500':'bg-red-500'} >
+                                Verificar
+                                </button>
+                                /**<div>
                                     <button onClick={nextQuestion} className='btn'>
-                                        {activeQuestion === question.length - 1 ? 'Finalizar' : 'Proximo'}
+                                    {activeQuestion === question.length - 1 ? 'Finalizar' : 'Proximo'}
                                     </button>
-                                </div>
+                                </div>**/
 
 
                                 
