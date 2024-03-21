@@ -1,4 +1,4 @@
-export const quiz = {
+export const materiais = {
     totalQuestions: 6,
     questions: [
         {

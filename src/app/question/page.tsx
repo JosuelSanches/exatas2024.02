@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import { quiz } from '../questoes'
+import { materiais } from '../questoes'
 //import { Button } from '../components/Button';
 
 const page = () => {
@@ -17,7 +17,7 @@ const page = () => {
         wrongAnswers: 0,
     })
 
-    const { questions } = quiz
+    const { questions } = materiais
     const { question, answers, correctAnswer } = questions[activeQuestion]
 
     /*
@@ -50,6 +50,7 @@ const page = () => {
    // Calculate score and increment to next question
    const nextQuestion = () =>{
     setSelectedAnswerIndex(null)
+    setNotGreenOrRed(true)
     setResult((prev) =>
     selectedAnswer ?
         {
@@ -92,7 +93,7 @@ const page = () => {
                                     selectedAnswerIndex === idx ? 'bg-black text-white' : 'li-hover'
                                 }
                             >
-                                <span>{answer}</span>
+                                <span className='font-bold'>{answer}</span>
                             </li>
                         ))}
                         {
@@ -103,18 +104,10 @@ const page = () => {
                                     </button>
                                     <h3>
                                         <button onClick={nextQuestion} className='btn'>
-                                            {activeQuestion === question.length - 1 ? 'Finalizar' : 'Proximo'}
+                                            {activeQuestion === (question.length - 1) ? 'Encerrar' : 'Próximo'}
                                         </button>
                                     </h3>
                                 </div>
-                                /**<div>
-                                    <button onClick={nextQuestion} className='btn'>
-                                    {activeQuestion === question.length - 1 ? 'Finalizar' : 'Proximo'}
-                                    </button>
-                                </div>**/
-
-
-                                
                             ) : (
                                 <button onClick={nextQuestion} disabled className='btn-disabled'></button>
                                 )
@@ -123,8 +116,8 @@ const page = () => {
                     </div>
                 ) : (
                     <div className='quiz-container'>
-                        <h3>Resultado</h3>
-                        <h3>Geral {(result.score /25) * 100}%</h3>
+                        <h3 className='bg-white'>Resultado</h3>
+                        <h3 className='bg-green-500'>Geral {(result.score /25) * 100}%</h3>
                         <p>Total de questoes: <span>{questions.length}</span></p>
                         <p>Total de pontos: <span>{result.score}</span></p>
                         <p>Respostas corretas: <span>{result.correctAnswers}</span></p>
