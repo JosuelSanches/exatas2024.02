@@ -62,6 +62,7 @@ h3{
   color: #000105;
   font-size: 1.8rem;
   font-weight: bold;
+  border-radius: 25px;
 }
 
 button{
@@ -73,6 +74,7 @@ button{
   cursor: pointer;
   background-color: #086A52 ;
   color: #f8f8f8;
+  
 }
 .btn-disabled{
   background-color: lightgray;

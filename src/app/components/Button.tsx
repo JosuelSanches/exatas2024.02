@@ -10,7 +10,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = (props: ButtonProps) => {
     const {variant} = props
 
-    const style = "rounded-md font-bold flex justify-center items-center gap-3 p-2"
+    const style = "font-bold flex justify-center items-center gap-3 p-2"
 
     switch(variant){
         case 'transparent':
@@ -34,7 +34,7 @@ export const DefaultButton = (props: ButtonProps) => {
     return (
         <button
         {...props}
-        className={`${defaultStyle} border-2 border-gray-500 text-white text-2xl hover:bg-slate-500`}>
+        className={`${defaultStyle} border-2 border-gray-500 text-white text-2xl hover:bg-gray-500`}>
             <span className="text-center my-auto">
                 {children}
             </span>

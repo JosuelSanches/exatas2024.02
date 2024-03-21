@@ -90,7 +90,7 @@ const page = () => {
                                 key={idx}
                                 onClick={() => onAnswerSelected(answer, idx)}
                                 className={
-                                    selectedAnswerIndex === idx ? 'bg-black text-white' : 'li-hover'
+                                    selectedAnswerIndex === idx ? 'bg-gray-700 text-white' : 'li-hover'
                                 }
                             >
                                 <span className='font-bold'>{answer}</span>
@@ -116,8 +116,8 @@ const page = () => {
                     </div>
                 ) : (
                     <div className='quiz-container'>
-                        <h3 className='bg-white'>Resultado</h3>
-                        <h3 className='bg-green-500'>Geral {(result.score /25) * 100}%</h3>
+                        <h3>Resultado</h3>
+                        <h3 className={((result.score /25) * 100) < 50 ? 'bg-red-500': 'bg-green-500'}>Geral {(result.score /25) * 100}%</h3>
                         <p>Total de questoes: <span>{questions.length}</span></p>
                         <p>Total de pontos: <span>{result.score}</span></p>
                         <p>Respostas corretas: <span>{result.correctAnswers}</span></p>
