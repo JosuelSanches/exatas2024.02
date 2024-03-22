@@ -34,7 +34,7 @@ export const DefaultButton = (props: ButtonProps) => {
     return (
         <button
         {...props}
-        className={`${defaultStyle} border-2 border-gray-500 text-white text-2xl hover:bg-gray-500`}>
+        className={`${defaultStyle} border-2 border-slate-500 text-white text-2xl hover:bg-gray-500 px-10 font-semibold rounded-full`}>
             <span className="text-center my-auto">
                 {children}
             </span>

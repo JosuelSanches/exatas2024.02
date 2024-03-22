@@ -10,7 +10,7 @@ export default function Home() {
         
         <div className='flex justify-center'>
           <Link href='/question'>
-            <Button>Conjuntos numericos</Button>
+            <Button size='full'>Conjuntos numericos</Button>
           </Link>
         </div>
 
