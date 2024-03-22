@@ -55,7 +55,7 @@ const page = () => {
     selectedAnswer ?
         {
             ...prev,
-            score: prev.score + 5,
+            score: prev.score + 6,
             correctAnswers: prev.correctAnswers + 1
         } : {
             ...prev,
@@ -77,7 +77,7 @@ const page = () => {
             <h1>Questões</h1>
                 <div>
                     <h2>
-                        Question: {activeQuestion + 1}
+                        Questão: {activeQuestion + 1}
                         <span>/{questions.length}</span>
                     </h2>
                 </div>
@@ -107,16 +107,6 @@ const page = () => {
                                     <span className='font-bold'>{answer}</span>
                                 </li>
                                 )
-
-                            /**<li 
-                                key={idx}
-                                onClick={() => onAnswerSelected(answer, idx)}
-                                className={
-                                    selectedAnswerIndex === idx ? 'bg-gray-700 text-white' : 'li-hover'
-                                }
-                            >
-                                    <span className='font-bold'>{answer}</span>
-                                </li>**/
                             ))}
                             {
                                 checked ? 
@@ -146,7 +136,7 @@ const page = () => {
                     <div className='quiz-container'>
                         <h3>Resultado</h3>
                         <h3 className={((result.score /25) * 100) < 50 ? 'bg-red-500': 'bg-green-500'}>Geral {(result.score /25) * 100}%</h3>
-                        <p>Total de questoes: <span>{questions.length}</span></p>
+                        <p>Total de questões: <span>{questions.length}</span></p>
                         <p>Total de pontos: <span>{result.score}</span></p>
                         <p>Respostas corretas: <span>{result.correctAnswers}</span></p>
                         <p>Respostas erradas: <span>{result.wrongAnswers}</span></p>
