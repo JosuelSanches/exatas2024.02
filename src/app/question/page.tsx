@@ -38,7 +38,9 @@ const page = () => {
         setSelectedAnswerIndex(idx)
         if (answer === correctAnswer){
             setSelectedAnswer(true)
-            //console.log('true')
+            console.log('true')
+            console.log('Tamanho das questões ',questions.length)
+            console.log('Questão atual', (activeQuestion + 1))
         }else{
             setSelectedAnswer(false)
             // console.log('false')
@@ -69,6 +71,7 @@ const page = () => {
             setShowResult(true)
     }
             setChecked(false)
+           
    }
 
 
@@ -116,18 +119,19 @@ const page = () => {
                                             Verificar
                                         </button>
                                         {notGreenOrRed?(
-                                                <button onClick={nextQuestion} disabled className='btn-disabled'></button>
+                                                <button onClick={nextQuestion} disabled className='btn-disabled'>
+                                                    {' '}
+                                                    {activeQuestion === questions.length - 1 ? 'finalizar' : 'Próximo'}
+                                                </button>
                                                 ):(
-                                                    <h3>
                                                         <button onClick={nextQuestion} className='btn'>
-                                                            {activeQuestion === (question.length - 1) ? 'Encerrar' : 'Próximo'}
+                                                            {activeQuestion === questions.length - 1 ? 'Finalizar' : 'Próximo'}
                                                         </button>
-                                                    </h3>
-                                                )
+                                                   )
                                         }
                                     </div>
                                 ) : (
-                                        <button onClick={onCorrection} disabled className='btn-disabled'></button>
+                                        <button onClick={onCorrection} disabled className='btn-disabled'> Verificar </button>
                                 )
                             }
 
@@ -135,7 +139,7 @@ const page = () => {
                     ) : (
                     <div className='quiz-container'>
                         <h3>Resultado</h3>
-                        <h3 className={((result.score /36) * 100) < 50 ? 'bg-red-500': 'bg-green-500'}>Geral {(result.score /36) * 100}%</h3>
+                        <h3 className={((result.score /36) * 100) < 50 ? 'bg-red-500': 'bg-green-500'}>Geral {((result.score /36) * 100).toFixed(2)}%</h3>
                         <p>Total de questões: <span>{questions.length}</span></p>
                         <p>Total de pontos: <span>{result.score}</span></p>
                         <p>Respostas corretas: <span>{result.correctAnswers}</span></p>
