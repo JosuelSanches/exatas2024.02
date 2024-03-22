@@ -135,7 +135,7 @@ const page = () => {
                     ) : (
                     <div className='quiz-container'>
                         <h3>Resultado</h3>
-                        <h3 className={((result.score /25) * 100) < 50 ? 'bg-red-500': 'bg-green-500'}>Geral {(result.score /25) * 100}%</h3>
+                        <h3 className={((result.score /36) * 100) < 50 ? 'bg-red-500': 'bg-green-500'}>Geral {(result.score /36) * 100}%</h3>
                         <p>Total de questões: <span>{questions.length}</span></p>
                         <p>Total de pontos: <span>{result.score}</span></p>
                         <p>Respostas corretas: <span>{result.correctAnswers}</span></p>
