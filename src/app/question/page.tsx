@@ -54,67 +54,73 @@ const page = () => {
     setResult((prev) =>
     selectedAnswer ?
         {
-        ...prev,
-        score: prev.score + 5,
-        correctAnswers: prev.correctAnswers + 1
+            ...prev,
+            score: prev.score + 5,
+            correctAnswers: prev.correctAnswers + 1
         } : {
-        ...prev,
-        wrongAnswers: prev.wrongAnswers + 1,
+            ...prev,
+            wrongAnswers: prev.wrongAnswers + 1,
         }
     )
-    if(activeQuestion !== questions.length-1){
-        setActiveQuestion((prev) => prev + 1)
-    } else {
-        setActiveQuestion(0)
-        setShowResult(true)
+        if(activeQuestion !== questions.length-1){
+            setActiveQuestion((prev) => prev + 1)
+    }   else {
+            setActiveQuestion(0)
+            setShowResult(true)
     }
-    setChecked(false)
+            setChecked(false)
    }
 
 
     return (
         <div className='container'>
             <h1>Questões</h1>
-            <div>
-                <h2>
-                    Question: {activeQuestion + 1}
-                    <span>/{questions.length}</span>
-                </h2>
-            </div>
-            <div>
-                {!showResult ? (
-                    <div className='questions-container'>
-                        <h3>{questions[activeQuestion].question}</h3>
-                        {answers.map((answer, idx) => (
-                            <li 
-                                key={idx}
-                                onClick={() => onAnswerSelected(answer, idx)}
-                                className={
-                                    selectedAnswerIndex === idx ? 'bg-gray-700 text-white' : 'li-hover'
-                                }
-                            >
-                                <span className='font-bold'>{answer}</span>
-                            </li>
-                        ))}
-                        {
-                            checked ? (
-                                <div>
-                                    <button onClick={onCorrection} className={notGreenOrRed? 'bg-blue-500' : correction? 'bg-green-500':'bg-red-500'} >
-                                        Verificar
-                                    </button>
-                                    <h3>
-                                        <button onClick={nextQuestion} className='btn'>
-                                            {activeQuestion === (question.length - 1) ? 'Encerrar' : 'Próximo'}
+                <div>
+                    <h2>
+                        Question: {activeQuestion + 1}
+                        <span>/{questions.length}</span>
+                    </h2>
+                </div>
+                <div>
+                    {!showResult ? (
+                        <div className='questions-container'>
+                            <h3>{questions[activeQuestion].question}</h3>
+                                {answers.map((answer, idx) => (
+                                <li 
+                                    key={idx}
+                                    onClick={() => onAnswerSelected(answer, idx)}
+                                    className={
+                                        selectedAnswerIndex === idx ? 'bg-gray-700 text-white' : 'li-hover'
+                                    }
+                                >
+                                    <span className='font-bold'>{answer}</span>
+                                </li>
+                            ))}
+                            {
+                                checked ? 
+                                (
+                                    <div>
+                                        <button onClick={onCorrection} className={notGreenOrRed? 'bg-blue-500' : correction? 'bg-green-500':'bg-red-500'} >
+                                            Verificar
                                         </button>
-                                    </h3>
-                                </div>
-                            ) : (
-                                <button onClick={nextQuestion} disabled className='btn-disabled'></button>
+                                        {notGreenOrRed?(
+                                                <button onClick={nextQuestion} disabled className='btn-disabled'></button>
+                                                ):(
+                                                    <h3>
+                                                        <button onClick={nextQuestion} className='btn'>
+                                                            {activeQuestion === (question.length - 1) ? 'Encerrar' : 'Próximo'}
+                                                        </button>
+                                                    </h3>
+                                                )
+                                        }
+                                    </div>
+                                ) : (
+                                        <button onClick={onCorrection} disabled className='btn-disabled'></button>
                                 )
                             }
 
-                    </div>
-                ) : (
+                        </div>
+                    ) : (
                     <div className='quiz-container'>
                         <h3>Resultado</h3>
                         <h3 className={((result.score /25) * 100) < 50 ? 'bg-red-500': 'bg-green-500'}>Geral {(result.score /25) * 100}%</h3>
@@ -125,8 +131,8 @@ const page = () => {
 
                         <button onClick={()=> window.location.reload()}>Reiniciar</button>
                     </div>
-                )}
-            </div>
+                    )}
+                </div>
         </div>
     )
 }
