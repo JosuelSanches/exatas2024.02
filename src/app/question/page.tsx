@@ -85,16 +85,38 @@ const page = () => {
                     {!showResult ? (
                         <div className='questions-container'>
                             <h3>{questions[activeQuestion].question}</h3>
-                                {answers.map((answer, idx) => (
-                                <li 
-                                    key={idx}
-                                    onClick={() => onAnswerSelected(answer, idx)}
-                                    className={
-                                        selectedAnswerIndex === idx ? 'bg-gray-700 text-white' : 'li-hover'
-                                    }
-                                >
+                            {answers.map((answer, idx) => (
+                                notGreenOrRed? (
+                                    <li 
+                                key={idx}
+                                onClick={() => onAnswerSelected(answer, idx)}
+                                className={
+                                    selectedAnswerIndex === idx ? 'bg-gray-700 text-white' : 'li-hover'
+                                }
+                            >
                                     <span className='font-bold'>{answer}</span>
                                 </li>
+                                ):(
+                                    <li 
+                                key={idx}
+                                /**onClick={() => onAnswerSelected(answer, idx)}**/
+                                className={
+                                    selectedAnswerIndex === idx ? 'bg-gray-700 text-white' : 'li-hover'
+                                }
+                            >
+                                    <span className='font-bold'>{answer}</span>
+                                </li>
+                                )
+
+                            /**<li 
+                                key={idx}
+                                onClick={() => onAnswerSelected(answer, idx)}
+                                className={
+                                    selectedAnswerIndex === idx ? 'bg-gray-700 text-white' : 'li-hover'
+                                }
+                            >
+                                    <span className='font-bold'>{answer}</span>
+                                </li>**/
                             ))}
                             {
                                 checked ? 
