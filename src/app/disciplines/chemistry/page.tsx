@@ -9,14 +9,14 @@ export default function Home() {
           <h1 className=' flex justify-center text-white text-2xl'>Vamos aprender !!</h1>
         
         <div className='flex justify-center'>
-          <Link href='/question'>
+          <Link href='/menuCQV'>
             <Button>Alotropia</Button>
           </Link>
         </div>
 
         <div className='flex justify-center'>
           <Link href=''>
-            <Button size='full'>Etados fisicos e estados de agregacao das moleculas</Button>
+            <Button size='full'>Estados fisicos e estados de agregacao das moleculas</Button>
           </Link>
         </div>
 
