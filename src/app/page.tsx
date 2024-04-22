@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { Button } from './components/Button';
+import SideNavBar from './components/SideNavbar';
 
 export default function Home() {
   return (
     <main>
       <div>
-          <h1 className='flex justify-center'>Exatas</h1>
+          <SideNavBar />
+          <h1 className='flex justify-center mt-60'>Exatas</h1>
           <h1 className='flex justify-center'>Selecione uma disciplina</h1>
         
         <div className='flex justify-center'>

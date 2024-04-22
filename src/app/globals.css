@@ -2,7 +2,11 @@
 @tailwind base;
 @tailwind utilities;
 
-
+@layer base {
+  body {
+    @apply bg-green-300;
+  }
+}
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -17,7 +21,7 @@
   }
 }
 
-body {
+/**body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -25,7 +29,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+}**/
 
 
 @layer utilities {
@@ -39,10 +43,10 @@ body {
   margin: 0;
 }
 
-html, body{
+/**html, body{
   overflow-x: hidden;
   background-color:#9FE2BF;
-}
+}**/
 main{
   padding: 1rem;
 }

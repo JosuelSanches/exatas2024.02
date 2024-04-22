@@ -1,3 +1,4 @@
+import Navigation from "./components/SideNavbar"
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -14,9 +15,31 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const navLinks = [
+    {
+      name: 'Home',
+      href: '/'
+    },
+    {
+      name: 'Matemática',
+      href: '/disciplines/math'
+    },
+    {
+      name: 'Física',
+      href: '/disciplines/physics'
+    },
+    {
+      name: 'Química',
+      href: '/disciplines/chemistry'
+    }
+  ]
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Navigation navLinks={navLinks}/>
+        {children}
+        </body>
     </html>
   );
 }
